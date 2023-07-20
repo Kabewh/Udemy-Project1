@@ -1,4 +1,4 @@
-import "bulma/css/bulma.css";
+import "./App.css";
 import React, { useState } from "react";
 import AnimalShow from "./components/AnimalShow";
 
@@ -21,8 +21,10 @@ function App() {
 
   return (
     <>
+    <div className="app">
       <button onClick={handleClick}>Add Animal</button>
-      <div>{renderedAnimals}</div>
+      <div className="animal-list">{renderedAnimals}</div>
+    </div>
     </>
   );
 }
