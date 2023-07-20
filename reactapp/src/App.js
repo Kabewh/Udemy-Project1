@@ -1,35 +1,29 @@
-import 'bulma/css/bulma.css';
+import "bulma/css/bulma.css";
 import React, { useState } from "react";
-import ProfileCard from './components/ProfileCard';
-import AlexaImage from './images/alexa.png';
-import CortanaImage from './images/cortana.png';
-import SiriImage from './images/siri.png';
+import AnimalShow from "./components/AnimalShow";
+
+function getRandomAnimal() {
+  const animals = ["bird", "cat", "cow", "dog", "gator", "horse"];
+
+  return animals[Math.floor(Math.random() * animals.length)];
+}
 
 function App() {
-return (
-  <>
-  <section className='hero is-primary'>
-    <div className='hero-body'>
-    <p className='title'>Personal Digital Assistants</p>
+  const [animals, setAnimals] = useState([]);
 
-    </div>
-  </section>
-    <div className='container'>
-      <section className='section'>
-        <div className='columns'>
-          <div className='column is-4'>
-            <ProfileCard title={"Cortana"} handle={"@cortana32"} image={CortanaImage} description="Cortana was created by Microsoft"/>
-          </div>
-          <div className='column is-4'>
-          <ProfileCard title={"Alexa"} handle={"@alexa99"} image={AlexaImage} description="Alexa wth???"/>
-          </div>
-          <div className='column is-4'>
-          <ProfileCard title={"Siri"} handle={"@siri01"} image={SiriImage} description="Apple's sclave"/>
-          </div>
-        </div>
-      </section>
-    </div>
-  </>
+  const handleClick = () => {
+    setAnimals([...animals, getRandomAnimal()]);
+  };
+
+  const renderedAnimals = animals.map((animal, index) => {
+    return <AnimalShow type={animal} key={index}/>
+  });
+
+  return (
+    <>
+      <button onClick={handleClick}>Add Animal</button>
+      <div>{renderedAnimals}</div>
+    </>
   );
 }
 export default App;
