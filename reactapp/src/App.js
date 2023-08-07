@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import SearchBar from "./components/SearchBar";
-import ImageList from "./components/ImageList";
-import searchImages from "./api";
+import React, { useEffect, useContext } from "react";
+import './index.css'
+import BookCreate from "./components/BookCreate";
+import BookList from "./components/BookList";
+import BooksContext from "./context/books";
 
-function App() {
-  const [images, setImages] = useState([]);
+function App() { 
+  const {fetchBooks} = useContext(BooksContext);
 
-  const handleSubmit = async (term) => {
-    const result = await searchImages(term);
-    setImages(result);
-  };
+
+  useEffect(() => {
+    fetchBooks()
+  }, [])
+
 
   return (
     <>
-      <div>
-        <SearchBar onSubmit={handleSubmit}/>
-        <ImageList images={images}/>
+      <div className="app">
+        <h1>Reading list</h1>
+        <BookList/>
+        <BookCreate/>
       </div>
     </>
   );
