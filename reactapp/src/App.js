@@ -1,24 +1,11 @@
-import React, { useEffect, useContext } from "react";
-import './index.css'
-import BookCreate from "./components/BookCreate";
-import BookList from "./components/BookList";
-import BooksContext from "./context/books";
+import React from "react";
 
 function App() { 
-  const {fetchBooks} = useContext(BooksContext);
-
-
-  useEffect(() => {
-    fetchBooks()
-  }, [])
-
 
   return (
     <>
       <div className="app">
-        <h1>Reading list</h1>
-        <BookList/>
-        <BookCreate/>
+        app
       </div>
     </>
   );
