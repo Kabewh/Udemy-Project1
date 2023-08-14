@@ -1,25 +1,25 @@
-import Route from "./components/Route";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AccordionPage from "./pages/AccordionPage";
 import DropdownPage from "./pages/DropdownPage";
 import Sidebar from "./components/Sidebar";
 import ButtonPage from "./components/Button";
+import ModalPage from "./pages/ModalPage";
 
 function App() {
   return (
-    <div>
+    <>
       <Sidebar />
       <div>
-        <Route path="/accordion">
-          <AccordionPage />
-        </Route>
-        <Route path="/">
-          <DropdownPage />
-        </Route>
-        <Route path="/buttons">
-          <ButtonPage />
-        </Route>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/accordion" element={<AccordionPage />} />
+            <Route path="/dropdown" element={<DropdownPage />} />
+            <Route path="/buttons" element={<ButtonPage />} />
+            <Route path="/modal" element={<ModalPage />} />
+          </Routes>
+        </BrowserRouter>
       </div>
-    </div>
+    </>
   );
 }
 export default App;
