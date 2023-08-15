@@ -7,7 +7,7 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-  <div className="wrapper">
+  <div className="wrapper flex flex-row">
     <Navigation>
       <App />
     </Navigation>
