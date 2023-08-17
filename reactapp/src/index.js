@@ -1,14 +1,15 @@
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import {Provider} from "./context/books";
+import "./index.css";
+import { Navigation } from "./context/Navigation";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-    <div className="wrapper">
-    <Provider>
+  <div className="wrapper flex flex-row">
+    <Navigation>
       <App />
-    </Provider>
-    </div>
+    </Navigation>
+  </div>
 );

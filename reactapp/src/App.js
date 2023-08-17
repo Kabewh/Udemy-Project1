@@ -1,24 +1,30 @@
-import React, { useEffect, useContext } from "react";
-import './index.css'
-import BookCreate from "./components/BookCreate";
-import BookList from "./components/BookList";
-import BooksContext from "./context/books";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccordionPage from "./pages/AccordionPage";
+import DropdownPage from "./pages/DropdownPage";
+import Sidebar from "./components/Sidebar";
+import ButtonPage from "./components/Button";
+import ModalPage from "./pages/ModalPage";
+import TablePage from "./pages/TablePage";
+import CounterPage from "./pages/CounterPage";
 
-function App() { 
-  const {fetchBooks} = useContext(BooksContext);
-
-
-  useEffect(() => {
-    fetchBooks()
-  }, [])
-
-
+function App() {
   return (
     <>
-      <div className="app">
-        <h1>Reading list</h1>
-        <BookList/>
-        <BookCreate/>
+      <Sidebar />
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/accordion" element={<AccordionPage />} />
+            <Route path="/dropdown" element={<DropdownPage />} />
+            <Route path="/buttons" element={<ButtonPage />} />
+            <Route path="/modal" element={<ModalPage />} />
+            <Route path="/table" element={<TablePage />} />
+            <Route
+              path="/counter"
+              element={<CounterPage initialCount={10} />}
+            />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   );
