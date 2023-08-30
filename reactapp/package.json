@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -22,6 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:server": "json-server --watch db.json --port 3005",
     "server": "json-server -p 3001 --watch db.json --host 127.0.0.1",
     "build": "react-scripts build",
     "test": "react-scripts test",
